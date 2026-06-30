@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" font-family="Segoe UI, system-ui, sans-serif">
   <defs>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
@@ -21,12 +22,12 @@
   <text x="360" y="145" text-anchor="middle" class="label">touch .processing marker</text>
   <rect x="250" y="195" width="220" height="60" class="step"/>
   <text x="360" y="220" text-anchor="middle" class="label">read JSONL line-by-line</text>
-  <text x="360" y="238" text-anchor="middle" class="sub">Pydantic -&gt; EventRecord</text>
+  <text x="360" y="238" text-anchor="middle" class="sub">Pydantic to EventRecord</text>
   <rect x="80" y="290" width="180" height="70" class="step ok"/>
   <text x="170" y="320" text-anchor="middle" class="label">valid event</text>
   <text x="170" y="340" text-anchor="middle" class="sub">in-file dedupe by event_id</text>
   <rect x="440" y="290" width="200" height="90" class="step bad"/>
-  <text x="540" y="318" text-anchor="middle" class="label">reject -&gt; DLQ</text>
+  <text x="540" y="318" text-anchor="middle" class="label">reject to DLQ</text>
   <text x="540" y="336" text-anchor="middle" class="sub">source_file, line_number</text>
   <text x="540" y="354" text-anchor="middle" class="sub">raw_line, reason</text>
   <rect x="80" y="400" width="220" height="70" class="step ok"/>
