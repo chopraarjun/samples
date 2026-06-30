@@ -17,14 +17,14 @@
   <text x="50" y="78" class="label">data/</text>
   <rect x="60" y="95" width="300" height="55" class="file"/>
   <text x="75" y="118" class="mono">landing/events/batch_20260630T215014Z_0001.jsonl</text>
-  <text x="75" y="136" class="caption">JSONL input  never deleted by ingest</text>
+  <text x="75" y="136" class="caption">JSONL input - never deleted by ingest</text>
   <rect x="60" y="165" width="300" height="55" class="file track"/>
   <text x="75" y="188" class="mono">tracking/events/batch_20260630T215014Z_0001.jsonl.processed</text>
   <text x="75" y="206" class="caption">idempotency markers (.processing / .processed)</text>
   <rect x="60" y="235" width="320" height="90" class="file lake"/>
   <text x="75" y="258" class="mono">data_lake/events/tenant_id=acme_corp/</text>
   <text x="95" y="278" class="mono">event_date=2025-03-15/part_*.parquet</text>
-  <text x="75" y="308" class="caption">hive partitions  query + retention target</text>
+  <text x="75" y="308" class="caption">hive partitions - query + retention target</text>
   <rect x="400" y="95" width="310" height="100" class="file dlq"/>
   <text x="415" y="118" class="mono">dlq/events/rejects.parquet</text>
   <text x="415" y="138" class="mono">source_file, line_number, raw_line,</text>
@@ -35,6 +35,6 @@
   <text x="415" y="256" class="caption">CLI step logs (optional)</text>
   <rect x="400" y="290" width="310" height="120" class="file"/>
   <text x="415" y="313" class="label">DuckDB (in-memory only)</text>
-  <text x="415" y="335" class="caption">read_parquet, merge SQL, COPY  no audit.duckdb</text>
+  <text x="415" y="335" class="caption">read_parquet, merge SQL, COPY - no audit.duckdb</text>
   <text x="415" y="358" class="caption">API and ingest open a fresh connection per run</text>
 </svg>

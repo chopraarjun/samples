@@ -14,7 +14,7 @@
       .line { stroke: #475569; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
     </style>
   </defs>
-  <text x="20" y="28" class="title">Artifact Access Audit Service  system overview</text>
+  <text x="20" y="28" class="title">Artifact Access Audit Service - system overview</text>
   <rect x="30" y="60" width="150" height="70" class="box"/>
   <text x="105" y="88" text-anchor="middle" class="label">events.jsonl</text>
   <text x="105" y="108" text-anchor="middle" class="sub">source file</text>
