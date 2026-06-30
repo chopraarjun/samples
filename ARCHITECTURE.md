@@ -6,9 +6,9 @@ This document describes **how the service is built**. For **why** (decisions, tr
 
 | | |
 |---|---|
-| **System overview** — CLIs, data lake, API, DLQ | ![System overview](images/system-overview.svg) |
-| **Ingest flow** — per-file validation, DLQ, partition upsert | ![Ingest flow](images/ingest-flow.svg) |
-| **On-disk layout** — landing, tracking, lake, DLQ | ![Data layout](images/data-layout.svg) |
+| **System overview** — CLIs, data lake, API, DLQ | ![System overview](docs/images/system-overview.svg) |
+| **Ingest flow** — per-file validation, DLQ, partition upsert | ![Ingest flow](docs/images/ingest-flow.svg) |
+| **On-disk layout** — landing, tracking, lake, DLQ | ![Data layout](docs/images/data-layout.svg) |
 
 ## Exercise scope
 
@@ -193,4 +193,4 @@ Pipeline name is always taken from the CLI argument (or defaults to `events`), n
 | DLQ replay | Read `rejects.parquet` by `source_file` + `line_number`, fix payload, re-ingest |
 
 See [DESIGN.md](DESIGN.md) for rationale behind these choices.
-
+
