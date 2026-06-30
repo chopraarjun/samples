@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" font-family="Segoe UI, system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .box { fill: #f8fafc; stroke: #334155; stroke-width: 1.5; rx: 8; }
+      .cli { fill: #eff6ff; stroke: #2563eb; }
+      .store { fill: #f0fdf4; stroke: #16a34a; }
+      .api { fill: #faf5ff; stroke: #7c3aed; }
+      .label { font-size: 13px; fill: #0f172a; font-weight: 600; }
+      .sub { font-size: 11px; fill: #475569; }
+      .line { stroke: #475569; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <text x="20" y="28" class="title">Artifact Access Audit Service  system overview</text>
+  <rect x="30" y="60" width="150" height="70" class="box"/>
+  <text x="105" y="88" text-anchor="middle" class="label">events.jsonl</text>
+  <text x="105" y="108" text-anchor="middle" class="sub">source file</text>
+  <rect x="230" y="50" width="160" height="90" class="box cli"/>
+  <text x="310" y="82" text-anchor="middle" class="label">audit-split-input</text>
+  <text x="310" y="102" text-anchor="middle" class="sub">optional batches</text>
+  <rect x="430" y="50" width="150" height="90" class="box cli"/>
+  <text x="505" y="82" text-anchor="middle" class="label">audit-ingest</text>
+  <text x="505" y="102" text-anchor="middle" class="sub">validate + dedupe</text>
+  <rect x="630" y="40" width="250" height="110" class="box store"/>
+  <text x="755" y="72" text-anchor="middle" class="label">data/data_lake/events/</text>
+  <text x="755" y="92" text-anchor="middle" class="sub">tenant_id=*/event_date=*/</text>
+  <text x="755" y="112" text-anchor="middle" class="sub">Parquet (source of truth)</text>
+  <rect x="430" y="180" width="150" height="80" class="box store"/>
+  <text x="505" y="212" text-anchor="middle" class="label">data/dlq/events/</text>
+  <text x="505" y="232" text-anchor="middle" class="sub">rejects.parquet</text>
+  <rect x="230" y="300" width="150" height="80" class="box cli"/>
+  <text x="305" y="332" text-anchor="middle" class="label">audit-retention</text>
+  <text x="305" y="352" text-anchor="middle" class="sub">drop old partitions</text>
+  <rect x="630" y="290" width="180" height="90" class="box api"/>
+  <text x="720" y="322" text-anchor="middle" class="label">FastAPI</text>
+  <text x="720" y="342" text-anchor="middle" class="sub">GET /tenants/{id}/events</text>
+  <rect x="30" y="300" width="150" height="80" class="box cli"/>
+  <text x="105" y="332" text-anchor="middle" class="label">audit-reset</text>
+  <text x="105" y="352" text-anchor="middle" class="sub">wipe lake + markers</text>
+  <rect x="430" y="300" width="150" height="80" class="box"/>
+  <text x="505" y="332" text-anchor="middle" class="label">HTTP client</text>
+  <text x="505" y="352" text-anchor="middle" class="sub">query only</text>
+  <path d="M180 95 L230 95" class="line"/>
+  <path d="M390 95 L430 95" class="line"/>
+  <path d="M580 95 L630 95" class="line"/>
+  <path d="M505 140 L505 180" class="line"/>
+  <path d="M755 150 L755 290" class="line"/>
+  <path d="M380 340 L630 335" class="line"/>
+  <path d="M580 340 L630 340" class="line"/>
+  <text x="400" y="325" class="sub">read_parquet (tenant scope)</text>
+  <text x="340" y="170" class="sub">bad rows</text>
+</svg>

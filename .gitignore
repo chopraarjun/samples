@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Runtime data (Parquet partitions, DuckDB)
+data/
+audit.db
+*.duckdb
