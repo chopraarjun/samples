@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" font-family="Segoe UI, system-ui, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .folder { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.5; rx: 6; }
+      .file { fill: #f8fafc; stroke: #64748b; stroke-width: 1.2; rx: 4; }
+      .lake { fill: #f0fdf4; stroke: #16a34a; }
+      .dlq { fill: #fef2f2; stroke: #dc2626; }
+      .track { fill: #fff7ed; stroke: #ea580c; }
+      .label { font-size: 12px; fill: #0f172a; font-weight: 600; }
+      .mono { font-size: 11px; fill: #334155; font-family: Consolas, monospace; }
+      .caption { font-size: 11px; fill: #64748b; }
+    </style>
+  </defs>
+  <text x="20" y="28" class="title">On-disk data layout</text>
+  <rect x="30" y="50" width="700" height="380" class="folder"/>
+  <text x="50" y="78" class="label">data/</text>
+  <rect x="60" y="95" width="300" height="55" class="file"/>
+  <text x="75" y="118" class="mono">landing/events/batch_20260630T215014Z_0001.jsonl</text>
+  <text x="75" y="136" class="caption">JSONL input - never deleted by ingest</text>
+  <rect x="60" y="165" width="300" height="55" class="file track"/>
+  <text x="75" y="188" class="mono">tracking/events/batch_20260630T215014Z_0001.jsonl.processed</text>
+  <text x="75" y="206" class="caption">idempotency markers (.processing / .processed)</text>
+  <rect x="60" y="235" width="320" height="90" class="file lake"/>
+  <text x="75" y="258" class="mono">data_lake/events/tenant_id=acme_corp/</text>
+  <text x="95" y="278" class="mono">event_date=2025-03-15/part_*.parquet</text>
+  <text x="75" y="308" class="caption">hive partitions - query + retention target</text>
+  <rect x="400" y="95" width="310" height="100" class="file dlq"/>
+  <text x="415" y="118" class="mono">dlq/events/rejects.parquet</text>
+  <text x="415" y="138" class="mono">source_file, line_number, raw_line,</text>
+  <text x="415" y="156" class="mono">reason, rejected_at</text>
+  <text x="415" y="180" class="caption">malformed / validation failures</text>
+  <rect x="400" y="215" width="310" height="55" class="file"/>
+  <text x="415" y="238" class="mono">logs/events/ingest_*.log</text>
+  <text x="415" y="256" class="caption">CLI step logs (optional)</text>
+  <rect x="400" y="290" width="310" height="120" class="file"/>
+  <text x="415" y="313" class="label">DuckDB (in-memory only)</text>
+  <text x="415" y="335" class="caption">read_parquet, merge SQL, COPY - no audit.duckdb</text>
+  <text x="415" y="358" class="caption">API and ingest open a fresh connection per run</text>
+</svg>
