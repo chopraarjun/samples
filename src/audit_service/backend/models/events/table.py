@@ -409,5 +409,7 @@ class EventsTable:
         if params.package is not None:
             conditions.append("package = ?")
             bind.append(params.package)
+        if params.actor is not None:
+            conditions.append(f"actor LIKE '%{params.actor}%'")
 
         return " AND ".join(conditions), bind

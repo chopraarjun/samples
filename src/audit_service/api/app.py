@@ -128,6 +128,20 @@ PackageQuery = Annotated[
     ),
 ]
 
+ActorQuery = Annotated[
+    Optional[str],
+    Query(
+        description=(
+            "Filter by actor name (partial match). "
+            "Leave empty for default: all actors."
+        ),
+        examples={
+            "runner": {"summary": "CI runners", "value": "runner"},
+            "admin": {"summary": "Admin users", "value": "admin"},
+        },
+    ),
+]
+
 LimitQuery = Annotated[
     int,
     Query(
@@ -240,6 +254,7 @@ def create_app(
         end_time: EndTimeQuery = None,
         action: ActionQuery = None,
         package: PackageQuery = None,
+        actor: ActorQuery = None,
         limit: LimitQuery = 100,
         offset: OffsetQuery = 0,
     ) -> EventsResponse:
@@ -266,6 +281,7 @@ def create_app(
                 end_time=_parse_optional_datetime(end_time, "end_time"),
                 action=action,
                 package=package,
+                actor=actor,
                 limit=limit,
                 offset=offset,
             )

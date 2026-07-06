@@ -123,3 +123,26 @@ def test_invalid_tenant_id_returns_422_with_field_detail(client: TestClient) -> 
 def test_health(client: TestClient) -> None:
     """Verify the health endpoint returns a static OK payload."""
     assert client.get("/health").json() == {"status": "ok"}
+
+
+def test_actor_filter(
+    client: TestClient, app_config, db_client: DuckDBClient, pipeline_config
+) -> None:
+    """Verify actor filter parameter is accepted and returns results."""
+    seed_event(
+        db_client,
+        app_config,
+        pipeline_config,
+        "acme_corp",
+        "evt_actor_1",
+        actor="ci-runner-03",
+        timestamp="2025-03-15T10:00:00+00:00",
+    )
+
+    response = client.get(
+        "/tenants/acme_corp/events",
+        params={"actor": "runner"},
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["total"] >= 1

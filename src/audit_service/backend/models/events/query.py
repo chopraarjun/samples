@@ -24,6 +24,7 @@ class EventQueryParams(BaseModel):
         end_time: Inclusive upper bound on ``timestamp``.
         action: Filter by artifact access action.
         package: Filter by package name (exact match).
+        actor: Filter by actor name (partial match).
         limit: Maximum events per page (1–1000).
         offset: Number of matching events to skip before the page.
     """
@@ -33,6 +34,7 @@ class EventQueryParams(BaseModel):
     end_time: Optional[datetime] = None
     action: Optional[ActionType] = None
     package: Optional[str] = None
+    actor: Optional[str] = None
     limit: int = Field(default=100, ge=1, le=1000)
     offset: int = Field(default=0, ge=0)
 
